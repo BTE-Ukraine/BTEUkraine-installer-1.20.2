@@ -1,4 +1,4 @@
-package dev.nachwahl.bteginstaller;
+package dev.alonebown.bteuinstaller;
 
 import javax.swing.*;
 

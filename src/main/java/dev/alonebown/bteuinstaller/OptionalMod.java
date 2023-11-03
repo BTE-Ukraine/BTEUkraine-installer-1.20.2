@@ -1,4 +1,4 @@
-package dev.nachwahl.bteginstaller;
+package dev.alonebown.bteuinstaller;
 
 public enum OptionalMod{
         COMMAND_MACROS,
