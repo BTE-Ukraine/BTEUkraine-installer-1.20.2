@@ -10,6 +10,7 @@ public class LoadingForm{
     public JPanel LoadingForm;
     private JLabel installiereLabel;
     private InstallUtil installUtil;
+    private JButton installEndButton;
 
     public LoadingForm(InstallUtil installUtil, JFrame frame, JDialog loading, String modpackVersion) {
 
@@ -28,6 +29,14 @@ public class LoadingForm{
                 installTask.cancel(true);
                 super.windowClosing(e);
             }
+        });
+        //Додає кнопку для виходу з інсталяції після її завершення
+        installEndButton.addActionListener(e -> {
+            loading.setVisible(false);
+            if (installTask.isDone()) {
+                loading.setVisible(true);
+            }
+            loading.dispose();
         });
 
 

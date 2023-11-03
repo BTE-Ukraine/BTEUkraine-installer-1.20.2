@@ -10,6 +10,7 @@ public class MainForm {
     public JPanel MainFormPanel;
     private JComboBox modpackVersionDropDown;
     private JLabel versionText;
+    private JButton changeLanquageButton;
 
     public MainForm(final JFrame frame, final InstallUtil installUtil) {
 

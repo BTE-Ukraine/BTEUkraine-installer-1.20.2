@@ -30,6 +30,7 @@ public class InstallTask extends SwingWorker<Void, Integer> {
     JDialog progressDialog;
     String fileSeparator;
     String modpackVersion;
+    String panoramicaModURL;
     public InstallTask(InstallUtil installUtil, JProgressBar progressBar, JLabel progessLabel, JDialog progressDialog, String modpackVersion) {
         this.installUtil = installUtil;
         this.progressBar = progressBar;
@@ -42,12 +43,13 @@ public class InstallTask extends SwingWorker<Void, Integer> {
     protected Void doInBackground() {
         switch (modpackVersion) {
                 case "1.20.2":
-                    modpackDownloadURL = "https://cdn.discordapp.com/attachments/561102539265802243/1168885167532802098/modpack.zip";
+                    modpackDownloadURL = "https://cdn.discordapp.com/attachments/561102539265802243/1169292842812837899/modpack.zip";
                     fabricDownloadURL = "https://cdn.discordapp.com/attachments/561102539265802243/1168964809144930304/fabric.zip";
                     cmdKeybindURL = "https://cdn.modrinth.com/data/h3r1moh7/versions/snLr0hHP/cmdkeybind-1.6.3-1.20.jar";
                     replayModURL = "https://cdn.modrinth.com/data/Nv2fQJo5/versions/akFkhrL8/replaymod-1.20.1-2.6.13.jar";
+                    panoramicaModURL = "https://cdn.discordapp.com/attachments/561102539265802243/1169291741376041011/panoramica__fabric_1.2.1_MC_1.20.2.jar";
                     fabricLoaderVersion = "fabric-loader-0.14.22-1.20.2";
-                    bteGermanyModpackVersion = "BTE Ukraine v1.0";
+                    bteGermanyModpackVersion = "BTE Ukraine v1.1";
                     break;
                 default:
                     throw new RuntimeException("Версія модпаку не підтримується");
@@ -124,7 +126,7 @@ public class InstallTask extends SwingWorker<Void, Integer> {
     }
 
     private boolean downloadModpack(String modpackDownloadURL, File installationPath) throws IOException {
-        progessLabel.setText("Скачуємо модпак...");
+        progessLabel.setText("Завантажуємо модпак...");
         URL url = new URL(modpackDownloadURL);
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
         httpURLConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36");
@@ -251,6 +253,9 @@ public class InstallTask extends SwingWorker<Void, Integer> {
         if (installUtil.isOptionalModEnabled(OptionalMod.REPLAY_MOD)) {
             downloadMod(modsFolder, new URL(replayModURL));
         }
+        if (installUtil.isOptionalModEnabled(OptionalMod.PANORAMICA)) {
+            downloadMod(modsFolder, new URL(panoramicaModURL));
+        }
         return true;
     }
 
@@ -261,7 +266,7 @@ public class InstallTask extends SwingWorker<Void, Integer> {
         long downloadedFileSize = 0;
         String modName = new File(url.getPath().toString()).getName();
 
-        progessLabel.setText("Скачуємо " + modName + "...");
+        progessLabel.setText("Завантажуємо " + modName + "...");
         BufferedInputStream in = new BufferedInputStream(httpURLConnection.getInputStream());
         BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(modsFolder + fileSeparator + modName), 1024);
         byte[] buffer = new byte[1024];
@@ -277,7 +282,7 @@ public class InstallTask extends SwingWorker<Void, Integer> {
     }
 
     private boolean downloadFabric(String minecraftFolder,URL url) throws IOException{
-        progessLabel.setText("Скачуємо Fabric...");
+        progessLabel.setText("Завантажуємо Fabric...");
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
         httpURLConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36");
         long fileSize = httpURLConnection.getContentLength();

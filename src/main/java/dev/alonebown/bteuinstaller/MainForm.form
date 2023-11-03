@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="dev.nachwahl.bteginstaller.MainForm">
+  <grid id="27dc6" binding="MainFormPanel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="0" bottom="10" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="531"/>
+    </constraints>
+    <properties>
+      <maximumSize width="400" height="200"/>
+      <minimumSize width="268" height="100"/>
+      <opaque value="true"/>
+      <preferredSize width="268" height="200"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="575ba" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="logo64x64.png"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="8b9f4" class="javax.swing.JButton" binding="selectOptionalModsButton">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Оберіть додаткові моди"/>
+        </properties>
+      </component>
+      <component id="1062a" class="javax.swing.JButton" binding="installModpackButton">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <text value="Встановити Модпак"/>
+        </properties>
+      </component>
+      <hspacer id="b888c">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="416e9">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="3653a" class="javax.swing.JLabel" binding="versionText">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="v1.0"/>
+        </properties>
+      </component>
+      <component id="686d9" class="javax.swing.JComboBox" binding="modpackVersionDropDown">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
